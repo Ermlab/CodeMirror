@@ -127,7 +127,6 @@
                 //or if it is a objects {text:'t',displayText:'t',...}
                 str = candidate.text;
             }
-
             //var t1 = str.lastIndexOf(start, 0) == 0;
             var t1 = str.indexOf(start) > -1;
 
@@ -152,14 +151,10 @@
             // find in the current environment.
             var obj = context.pop(),
                 base;
-
-            console.log('obj', obj);
-
             if (obj.type == "variable")
                 base = obj.string;
             else if (obj.type == "variable-3")
                 base = ":" + obj.string;
-
             while (base != null && context.length)
                 base = base[context.pop().string];
             if (base != null)
